@@ -1,18 +1,25 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class="home"> 
+    <Tabela :lista="lista"/>
   </div>
 </template>
 
+
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import $ from 'jquery';
+import Tabela from '@/components/Tabela.vue'
+import dataJson from '@/assets/data.json'
 
 export default {
   name: 'HomeView',
   components: {
-    HelloWorld
+    Tabela,
+    dataJson
+  },
+  data(){
+    return{
+      lista : dataJson
+    }
   }
 }
 </script>
