@@ -29,6 +29,17 @@ export default {
       .catch(error => {
         console.error('Ocorreu um erro:', error);
       });
+  },
+  watch:{
+    lista(){
+      axios.get('http://localhost:3000/results')
+      .then(response => {
+        this.lista = response.data;
+      })
+      .catch(error => {
+        console.error('Ocorreu um erro:', error);
+      });
+    }
   }
   
 }

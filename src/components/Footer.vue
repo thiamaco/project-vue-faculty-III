@@ -1,6 +1,6 @@
 <template>
     <footer>
-    <p>&copy; 2024 Thiamaco. Todos os Direitos Reservados.</p>
+    <p>&copy; 2024 Thiamaco & Patrick. Todos os Direitos Reservados.</p>
     </footer>
   </template>
   
@@ -11,7 +11,7 @@ footer {
   color: #fff;
   text-align: center;
   padding: 10px;
-  position: fixed;
+  position:fixed;
   bottom: 0%;
   width: 100%;
 }

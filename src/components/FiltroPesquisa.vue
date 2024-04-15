@@ -46,15 +46,19 @@ export default {
   border: 10px;
 }
 
-input,button {
-  border-radius: 10px;
+input,button{
+  border-radius: 6px;
   border: 0;
   padding: 7px 20px;
   margin: 0px 0px 0px 10px;
   background-color: #333;
   color: white;
+  font-weight: bold;
 }
-
+select{
+  border-radius:6px;
+  padding: 5px;
+}
 input:hover{
   background-color:rgb(148, 154, 158);
   color: black;

@@ -5,24 +5,24 @@
             <thead>
           <tr>
             <th class="name">Nome</th>
+            <th>CPF</th>
             <th>Gender</th>
             <th>Age</th>
             <th>City</th>
             <th>State</th>
             <th>E-mail</th>
-            <th>CPF</th>
             <th class="phone">Phone</th>
           </tr>
         </thead>
         <tbody >
-            <tr v-for="item in listaFiltrada ":key="item.id" >
+            <tr v-for="item in listaFiltrada ":key="item.id">
                 <th v-for="(item, index) in item.results" :key="index" >{{item.name.first +" "+ item.name.last}}</th>
+                <th v-for="(item, index) in item.results" :key="index">{{item.id.value}}</th>
                 <th v-for="(item, index) in item.results" :key="index">{{item.gender}}</th>
                 <th v-for="(item, index) in item.results" :key="index">{{item.dob.age}}</th>
                 <th v-for="(item, index) in item.results" :key="index"> {{item.location.city}}</th>
                 <th v-for="(item, index) in item.results" :key="index">{{item.location.state}}</th>
-                <th v-for="(item, index) in item.results" :key="index">{{item.email}}</th>
-                <th v-for="(item, index) in item.results" :key="index">{{item.id.value}}</th>
+                <th v-for="(item, index) in item.results" :key="index">{{item.email}}</th>  
                 <th v-for="(item, index) in item.results" :key="index">{{item.phone}}</th>
             </tr>
         </tbody>
@@ -38,7 +38,7 @@ export default {
   }, 
   data(){
     return{
-      filtro:'',
+      filtro:''
     }
   },
   methods:{
@@ -51,7 +51,7 @@ export default {
   },
   computed:{
     listaFiltrada() {
-      if (!this.filtro) {
+      if (!this.filtro.value) {
         return this.lista;
       } else {
           return this.lista.filter(item => {
@@ -79,49 +79,42 @@ export default {
 </script>
 
 <style>
+table {
+  font-size: 12px;
+}
+tr:nth-child(even)  {
+  background: rgb(148, 154, 158);
+  color: #000; 
+}
+tr:nth-child(even)  {
+  background-color: rgb(223, 225, 226); 
+  color: #333; 
+}
 
-tr:nth-child(even)  {
-  background: rgb(148, 154, 158);
-  color: #000; 
-}
-tr:nth-child(even)  {
-  background-color: rgb(223, 225, 226); 
-  color: #333; 
-}
-tr:nth-child(even) td {
-  background: rgb(148, 154, 158);
-  color: #000; 
-}
-tr:nth-child(odd) td {
-  background-color: rgb(223, 225, 226); 
-  color: #333; 
-}
 th:first-child{
   padding: 10px;
 }
 table {
   margin: auto;
   text-align: center;
+  margin-bottom: 40px;
+  
 }
 th{
   background: rgb(148, 154, 158);
+ 
 }
 td{
-  min-width: 100px;
+  min-width: 120px;
 }
 .name{
   padding: 0px 30px 0px 30px;
 }
 th{
-  min-width: 80px;
+  min-width: 100px;
 }
 
-th:hover + tr {
-  background-color: #e90707;
-}
 
-table {
-  position: relative;
-  overflow-y:scroll;
-}
+
+
 </style>
