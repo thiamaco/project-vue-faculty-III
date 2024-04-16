@@ -1,8 +1,10 @@
 <template>
+    <div>
         <a href="javascript:void(0)" @click="adduser">Adicionar </a>
         <div class="message-add"v-if="add">
             <span>Um novo Usuario foi adicionado!</span>
         </div>
+    </div>
 </template>
 
 <script>
@@ -38,6 +40,8 @@ export default {
             } catch (error) {
                 console.log({ error: 'Ocorreu um erro na requisição.' });
         }
+        this.$emit('novo-user')
+        console.log('add')
      }
     }
 }

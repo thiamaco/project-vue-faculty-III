@@ -1,6 +1,8 @@
 <template>
     <div class="home">
+      <AddUser @novo-user="adicionarNovoUsuario"/>
       <FiltroPesquisa @filtro="filtrar"/>
+      
         <table>
             <thead>
           <tr>
@@ -30,6 +32,7 @@
     </div>
 </template>
 <script>
+import AddUser from './AddUser.vue'
 import FiltroPesquisa from './FiltroPesquisa.vue'
 export default {
   name:'tabela',
@@ -44,10 +47,15 @@ export default {
   methods:{
     filtrar(value){
       this.filtro = value
+    },
+    adicionarNovoUsuario(){
+      this.$emit('novo-user')
+      console.log('tabela')
     }
   },
   components:{
-    FiltroPesquisa
+    FiltroPesquisa,
+    AddUser
   },
   computed:{
     listaFiltrada() {

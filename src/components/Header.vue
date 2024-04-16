@@ -6,28 +6,19 @@
    <li><router-link to="/aniversarios">aniversarios</router-link></li>
    <li><router-link to="/contatos">contatos</router-link></li>
    <li><router-link to="/map">map</router-link></li>
-   <li><AddUser/></li>
   </ul>
   </header>
     <router-view/>
- 
+
   </template>
-
-
 <script>
 
 import AddUser from '@/components/AddUser.vue'
-
 export default {
   name: 'Header',
   components: {
     AddUser
-  },
-  data(){
-    return{
-      lista : []
-    }
-  },
+  }
 }
 </script>
 

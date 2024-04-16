@@ -1,37 +1,30 @@
 <template>
   <div> 
-    <Tabela :lista="lista"/>
+    <Tabela :lista="lista" @novo-user="adicionarNovoUsuario"/>
   </div>
 </template>
 
 
 <script>
-//import $ from 'jquery';
+import $ from 'jquery';
 import Tabela from '@/components/Tabela.vue'
-//import dataJson from '@/assets/data.json'
+
 import axios from 'axios';
 export default {
   name: 'HomeView',
   components: {
-    Tabela,
-    //dataJson
+    Tabela
   },
   data(){
     return{
-      lista : []
+      lista :[],
     }
   },
   created() {
-    axios.get('http://localhost:3000/results')
-      .then(response => {
-        this.lista = response.data;
-      })
-      .catch(error => {
-        console.error('Ocorreu um erro:', error);
-      });
+    this.atualizalista();
   },
-  watch:{
-    lista(){
+  methods:{
+    atualizalista(){
       axios.get('http://localhost:3000/results')
       .then(response => {
         this.lista = response.data;
@@ -39,9 +32,12 @@ export default {
       .catch(error => {
         console.error('Ocorreu um erro:', error);
       });
+    },
+    adicionarNovoUsuario(){
+      console.log('home')
+      this.atualizalista();
     }
   }
-  
 }
 </script>
 
